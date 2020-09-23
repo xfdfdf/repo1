@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserMapper">
+    <!--查询所有-->
+    <select id="findAll" resultType="user">
+        select * from user
+    </select>
+<!--    增加用户-->
+    <insert id="insert" parameterType="com.lagou.domain1.User">
+        insert into user(username,birthday,sex,address) values(#{username},#{birthday},#{sex},#{address})
+    </insert>
+
+<!--    更新用户-->
+
+    <update id = "update" parameterType="com.lagou.domain1.User">
+        update user set username = #{username},birthday = #{birthday},sex = #{sex},address = #{address} where id = #{id}
+    </update>
+<!--    删除用户-->
+    <delete id = "delete" parameterType = "int">
+        delete from user where id = #{jhhj}  <!--//当参数为基本类型或者String时候，而且只有一个参数，#｛｝里面随便写-->
+    </delete>
+</mapper>
